@@ -15,10 +15,11 @@ module.exports = async (req, res, next) => {
 
     if (!user) return res.status(401).json({ msg: 'Não autorizado.' });
 
+    req.userId = id;
+    req.userEmail = email;
+
     return next();
   } catch (error) {
-    console.log(error);
-
     if (error.name === 'TokenExpiredError') {
       return res.status(401).json({ msg: 'Sessão inválida.' });
     }

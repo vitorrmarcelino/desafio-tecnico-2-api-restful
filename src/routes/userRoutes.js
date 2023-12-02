@@ -11,7 +11,6 @@ const loginRequired = require('../middlewares/loginRequired');
 // Rotas
 router.post('/register', CreateUserController.create);
 router.post('/login', LoginUserController.login);
-router.get('/', loginRequired, GetUsersController.index);
-router.get('/:search', loginRequired, GetUsersController.search);
+router.get('/', loginRequired, GetUsersController.show);
 
 module.exports = router;
