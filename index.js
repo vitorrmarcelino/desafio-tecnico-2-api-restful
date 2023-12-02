@@ -11,6 +11,7 @@ app.use(express.json());
 // Rotas
 const userRoutes = require('./src/routes/userRoutes');
 
+app.get('/', (req, res) => res.json({ mensagem: 'Bem vindo a API' }));
 app.use('/users', userRoutes);
 
 const port = process.env.PORT;
